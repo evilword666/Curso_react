@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App'; //Este es el nombre de la pagina que se importara, va hasta abajo 
+import './css/index.css';
+//import App from './App'; //Este es el nombre de la pagina que se importara, va hasta abajo 
+import Aplicacion from './componentes/Aplicacion'
 import * as serviceWorker from './serviceWorker';
 
 //React sin JSX
@@ -9,8 +10,9 @@ import * as serviceWorker from './serviceWorker';
 
 
 
-//Dos parametros: 1) Que va a imprirmir(titulo) y donde lo va a imprimir
-ReactDOM.render(<App/>, document.getElementById('root'));
+//Dos parametros: 1) Que componente va a imprirmir(titulo) y donde lo va a imprimir
+ReactDOM.render(  <Aplicacion/> ,document.getElementById('root')); //Recordar que el nombre del componente va entre la etiqueta < />
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
