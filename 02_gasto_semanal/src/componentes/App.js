@@ -6,6 +6,7 @@ import Formulario from './Formulario';
 import Listado from './Listado';
 import {validarPresupuesto} from '../Helpers';
 import ControlPresupuesto from './ControlPresupuesto';
+
 class App extends Component {
 
 state = {
@@ -63,6 +64,8 @@ obtenerPresupuesto = () =>{
     console.log(restante)
 
     restante -= restar;
+    restante = String(restante)
+    
     console.log(restante);
 
     this.setState({

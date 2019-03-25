@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import PropTypes from 'prop-types';
 
 class FormularioGastos extends Component{
 
@@ -48,5 +49,10 @@ class FormularioGastos extends Component{
         )
     }
 }
+
+FormularioGastos.propTypes = {
+    agregarGasto: PropTypes.func.isRequired
+}
+
 
 export default FormularioGastos;
