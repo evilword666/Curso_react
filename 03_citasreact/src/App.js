@@ -9,6 +9,42 @@ state = { //El state siempre es un objeto
   citas: []
 }
 
+/********************************************************/
+/*********** Ciclo de vida de los componentes **********/
+/********************************************************/
+componentDidMount(){
+  console.log("Esta listo")
+  const citasLS = localStorage.getItem("citas")
+  if(citasLS){
+    this.setState({
+      citas:JSON.parse(citasLS)
+    })
+  }
+
+}
+
+componentWillMount(){
+  console.log("Yo me ejecuto antes!")
+
+  
+}
+
+componentWillUnmount(){
+  console.log("Yo hasta que cierra el componente")
+
+}
+
+componentDidUpdate(){
+  console.log("Algo cambio")   
+  localStorage.setItem(
+    'citas',
+    JSON.stringify(this.state.citas)
+  )
+  //console.log(localStorage.getItem("citas"))
+}
+
+/********************************************************/
+/********************************************************/
 
   crearCita = (nuevaCita) =>{
       //console.log(cita)
@@ -24,9 +60,29 @@ state = { //El state siempre es un objeto
       this.setState({
         citas:citas
       });
+  }
 
+  borrarCita = id =>{
+    console.log(id)
+
+    //Obtener copia del state
+    const citasActuales = [...this.state.citas]
+    console.log("Antes...")
+    console.log(citasActuales)
+    
+    //borra el elemento del state
+    //.filter Es una forma de extraer elementos de un arreglo
+    const citasResultados = citasActuales.filter(cita => cita.id !== id ) //Hace un filtro y elimina del arreglo el id que se le pasa
+    console.log("Despues...")
+    console.log(citasResultados)
+    
+    //actualizar el state
+    this.setState({
+      citas:citasResultados
+    })
 
   }
+
 
   render() {
     return (
@@ -44,6 +100,7 @@ state = { //El state siempre es un objeto
             <div className="col-md-6">
               <ListaCitas
                   citas={this.state.citas}  
+                  borrarCita={this.borrarCita}
               />
             </div>
           </div>
