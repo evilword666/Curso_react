@@ -39,11 +39,12 @@ class App extends Component {
 
     let url = `http://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&appid=${appId}`;
 
-    //console.log(url)
+    console.log(url)
 
     //Hacemos un query con  fetch Api
     fetch(url)
     .then(respuesta => {
+      console.log(respuesta)
       return respuesta.json();
     })
     .then(datos=>{
@@ -72,7 +73,7 @@ class App extends Component {
       })
 
     }else{
-      console.log(respuesta)
+      //console.log(respuesta)
 
         this.setState({
           consulta: respuesta,
